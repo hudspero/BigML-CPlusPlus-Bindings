@@ -14,13 +14,17 @@ Created to be used with the BigML Machine Learning API (https://bigml.com)
 
 #How does it work? 
 
-1) Include BigML.hpp
+1) Download the required tools
 
-2) Create object of BigML class
+2) Get the required files
 
-3) Set user authentication
+3) Include BigML.hpp
 
-4) Declare the functions you want to use
+4) Create object of BigML class
+
+5) Set user authentication
+
+6) Declare the functions you want to use
 
 # What Is Happening?
 
