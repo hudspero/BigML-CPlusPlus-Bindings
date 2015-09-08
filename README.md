@@ -40,4 +40,6 @@ The majority of functions follow a similar pattern, building off an existing res
 
 The only function that behaves differently is <i>[object.create_prediction("model_identifier", "column", number);]</i>, where the prediction is created instantaneously and a confidence for that particular prediction is returned.
 
+Any questions about these Bindings can be sent directly towards me. Anything else is better sent towards BigML.
+
 Last Update: 09/08/2015
