@@ -30,7 +30,7 @@ When the functions are declared, a JSON body will be constructed, containing you
 
 The data within the function arguments will be sent in an HTTP POST request via libcURL, where it will be processed by the BigML API, and a resource will be created. Everything you submit to the API is viewable on the BigML Dashboard. 
 
-To check on the status of the source for its completion, calling the function <i>[object.get_source(object.get_src());]</i> will send an HTTP GET request based on the resource identifier stored in <i>[object.get_src()]</i>. Alternatively, you could call the function as <i>[object.get_source("identifier");]</i>.
+To check on the status of the source for its completion, calling the function <i>[object.get_source(object.get_src());]</i> will send an HTTP GET request based on the resource identifier stored in <i>[object.get_src();]</i>. Alternatively, you could call the function as <i>[object.get_source("identifier");]</i>.
 
 The majority of functions follow a similar pattern, building off an existing resource's identifier. To create a dataset, for example, after creating a source, all you have to call is <i>[object.create_dataset(object.get_src());]</i>.
 
