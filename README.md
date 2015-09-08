@@ -5,9 +5,9 @@ created by Robert L. Hudspeth
 
 REQUIREMENTS FOR BINDINGS:
 
-*) libcURL
+*) libcURL (http://curl.haxx.se)
 
-*) cJSON
+*) cJSON (http://cjson.sourceforge.net)
 
 *) GCC 4.2.1+
 
