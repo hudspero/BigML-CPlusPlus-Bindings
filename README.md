@@ -14,11 +14,11 @@ Created to be used with the BigML Machine Learning API (https://bigml.com)
 
 #How does it work? 
 
-<b>1)</b> Download the required tools
+<b>1)</b> Get the required tools
 
-<b>2)</b> Get the required files
+<b>2)</b> Download the files in this repo in the same directory as your main file
 
-<b>3)</b> Include BigML.hpp
+<b>3)</b> Include "BigML.hpp"
 
 <b>4)</b> Create object of BigML class
 
