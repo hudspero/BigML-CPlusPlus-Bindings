@@ -14,19 +14,19 @@ Created to be used with the BigML Machine Learning API (https://bigml.com)
 
 #How does it work? 
 
-1) Download the required tools
+<b>1)</b> Download the required tools
 
-2) Get the required files
+<b>2)</b> Get the required files
 
-3) Include BigML.hpp
+<b>3)</b> Include BigML.hpp
 
-4) Create object of BigML class
+<b>4)</b> Create object of BigML class
 
-5) Set user authentication
+<b>5)</b> Set user authentication
 
-6) Declare the functions you want to use
+<b>6)</b> Declare the functions you want to use
 
-7) When compiling, <b>be sure to include the -lcurl flag!</b>
+<b>7)</b> When compiling, <b>BE SURE TO INCLUDE THE -lcurl FLAG!</b>
 
 # What Is Happening?
 
