@@ -30,7 +30,11 @@ Created to be used with the BigML Machine Learning API (https://bigml.com)
 
 # What Is Happening?
 
-To set user authentication, you have two choices. The first gets the username and API key from environment variables <i>[object.set_user_info();]</i>. The second choice gets the username and API key from string literals <i>[object.set_user_info("username", "api_key");]</i>.
+To set user authentication, you have two choices. 
+
+  -The first gets the username and API key from environment variables <i>[object.set_user_info();]</i>. 
+  
+  -The second choice gets the username and API key from string literals <i>[object.set_user_info("username", "api_key");]</i>.
 
 When the functions are declared, a JSON body will be constructed, containing your user authentication and the information passed into the function arguments. For example, to create a remote source, you would call the function <i>[object.create_remote_source("s3://bigml-public/csv/iris.csv", "source");]</i>.
 
