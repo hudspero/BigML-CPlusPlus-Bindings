@@ -36,9 +36,13 @@ To set user authentication, you have two choices.
   
   -The second choice gets the username and API key from string literals <i>[object.set_user_info("username", "api_key");]</i>.
 
-When the functions are declared, a JSON body will be constructed, containing your user authentication and the information passed into the function arguments. For example, to create a remote source, you would call the function <i>[object.create_remote_source("s3://bigml-public/csv/iris.csv", "source");]</i>.
+When the functions are declared, a JSON body will be constructed, containing your user authentication and the information passed into the function arguments. For example, to create a remote source, you would call the function <i>[object.create_remote_source("s3://bigml-public/csv/iris.csv", "source");]</i>, where the URL is a link to a remote source, and "source" is the name.
 
-The data within the function arguments will be sent in an HTTP POST request via libcURL, where it will be processed by the BigML API, and a resource will be created. Everything you submit to the API is viewable on the BigML Dashboard. 
+Once the JSON body is constructed, it will be sent in an HTTP POST request via libcURL, where it will be processed by the BigML API, and a resource will be created. Everything you submit to the API is viewable on the BigML Dashboard. 
+
+In return, you will get a unique resource identifier, which you can use to view on the BigML dashboard, or create a new resource of your choice.
+
+<i>NOTE: To create a resource, you cannot use any random identifier. To learn more, visit (https://bigml.com/developers)</i>
 
 To check on the status of the source for its completion, calling the function <i>[object.get_source(object.get_src());]</i> will send an HTTP GET request based on the resource identifier stored in <i>[object.get_src();]</i>. Alternatively, you could call the function as <i>[object.get_source("identifier");]</i>.
 
