@@ -44,4 +44,4 @@ The only function that behaves differently is <i>[object.create_prediction("mode
 
 Any questions about these Bindings can be sent directly towards me. Anything else is better sent towards BigML.
 
-Last Update: 09/08/2015
+Last README Update: 09/09/2015
