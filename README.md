@@ -26,6 +26,8 @@ Created to be used with the BigML Machine Learning API (https://bigml.com)
 
 6) Declare the functions you want to use
 
+7) When compiling, <b>be sure to include the -lcurl flag!</b>
+
 # What Is Happening?
 
 To set user authentication, you have two choices. The first gets the username and API key from environment variables <i>[object.set_user_info();]</i>. The second choice gets the username and API key from string literals <i>[object.set_user_info("username", "api_key");]</i>.
