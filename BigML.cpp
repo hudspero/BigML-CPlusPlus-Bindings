@@ -668,8 +668,6 @@ void BigML::create_prediction(const string model_iden, const char *col, const fl
 	cJSON_AddNumberToObject(data, col, num);
 	item2 = cJSON_GetObjectItem(data, "data");
 	info = cJSON_PrintUnformatted(data);
-	cout << "Creating a prediction for the following info:" << endl;
-	cout << info << endl;
 	cout << endl;
 	
 	//Getting main JSON body
@@ -678,7 +676,6 @@ void BigML::create_prediction(const string model_iden, const char *col, const fl
 	
 	curl_global_init(CURL_GLOBAL_ALL);
 	curl = curl_easy_init();
-	cout << "Initializing cURL" << endl;
 	
 	init_str(&s); //Initialize memory buffer for storing resource identifier & status code for later use
 	
