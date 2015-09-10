@@ -57,11 +57,17 @@ Any questions about these Bindings can be sent directly towards me. Anything els
 As of 9/10/15, the current list of features are:
 
 -Create a Remote Source
+
 -Build a Dataset
+
 -Detect a Anomalies
+
 -Build a Cluster
+
 -Build an Ensemble
+
 -Build a Model
+
 -Develop a Prediction
 
 These Bindings do receive ongoing support, so more features and any bug tweaking will definitely be on the way!
