@@ -26,7 +26,7 @@ Created to be used with the BigML Machine Learning API (https://bigml.com)
 
 <b>6)</b> Declare the functions you want to use
 
-<b>7)</b> When compiling, <b>BE SURE TO INCLUDE THE -lcurl FLAG!</b>
+<b>7)</b> When compiling, <b>BE SURE TO INCLUDE THE -lcurl FLAG! WITHOUT THIS, IT WILL NOT COMPILE!</b>
 
 # What Is Happening?
 
