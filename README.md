@@ -1,5 +1,5 @@
 #BigML-CPlusPlus-Bindings
-C++ Bindings for BigML Machine Learning API V1.0.0
+C++ Bindings for BigML Machine Learning API
 
 <b>created by Robert L. Hudspeth</b>
 
@@ -52,4 +52,4 @@ The only function that behaves differently is <i>[object.create_prediction("mode
 
 Any questions about these Bindings can be sent directly towards me. Anything else is better sent towards BigML (https://github.com/bigmlcom).
 
-Last README Update: 09/09/2015
+Last README Update: 09/10/2015
