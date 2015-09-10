@@ -8,7 +8,7 @@
 #include "BigML.hpp"
 
 /******************************/
-/*			PRIVATE			  */
+/*	PRIVATE		      */
 /******************************/
 
 void BigML::get_source_identifier(str *s) {
@@ -109,7 +109,7 @@ void BigML::get_prediction_info(str *s) {
 
 
 /******************************/
-/*			PUBLIC			  */
+/*	PUBLIC		      */
 /******************************/
 
 //Return identifiers as "get" member functions to prevent altering of private member variables
