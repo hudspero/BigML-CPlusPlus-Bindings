@@ -177,7 +177,6 @@ void BigML::create_remote_source(const char* url, const char* title) {
 	
 	curl_global_init(CURL_GLOBAL_ALL);
 	curl = curl_easy_init();
-	cout << "Initializing cURL" << endl;
 	
 	init_str(&s); //Initialize memory buffer for storing resource identifier & status code for later use
 
@@ -212,8 +211,6 @@ void BigML::create_remote_source(const char* url, const char* title) {
 	
 		init_str(&s);
 	
-		cout << endl;
-		cout << "Your Source Identifier is: " << source_iden << endl;
 		cout << endl;
 		cout << "Checking of Status of Source Upload." << endl;
 		cout << endl;
@@ -260,7 +257,6 @@ void BigML::create_dataset(const string source_iden) {
 	
 	curl_global_init(CURL_GLOBAL_ALL);
 	curl = curl_easy_init();
-	cout << "Initializing cURL" << endl;
 			
 	init_str(&s); //Initialize memory buffer for storing resource identifier & status code for later use
 			
@@ -297,8 +293,6 @@ void BigML::create_dataset(const string source_iden) {
 		reset_str(&s);
 		init_str(&s);
 			
-		cout << endl;
-		cout << "Your Dataset Identifier is: " << dataset_iden << endl;
 		cout << endl;
 		cout << "Checking on Status of Dataset Creation." << endl;
 		cout << endl;
@@ -345,7 +339,6 @@ void BigML::create_anomalies(const string dataset_iden) {
             
 	curl_global_init(CURL_GLOBAL_ALL);
 	curl = curl_easy_init();
-	cout << "Initializing cURL" << endl;
 				
 	init_str(&s); //Initialize memory buffer for storing resource identifier & status code for later use
 			
@@ -382,8 +375,6 @@ void BigML::create_anomalies(const string dataset_iden) {
 		reset_str(&s);
 		init_str(&s);
 			
-		cout << endl;
-		cout << "Your Anomaly Identifier is: " << anomaly_iden << endl;
 		cout << endl;
 		cout << "Checking on Status of Anomaly Detection." << endl;
 		cout << "This May Take A While to Complete." << endl;
@@ -431,7 +422,6 @@ void BigML::create_cluster(const string dataset_iden) {
 
 	curl_global_init(CURL_GLOBAL_ALL);
 	curl = curl_easy_init();
-	cout << "Initializing cURL" << endl;
 
 	init_str(&s); //Initialize memory buffer for storing resource identifier & status code for later use
 
@@ -468,8 +458,6 @@ void BigML::create_cluster(const string dataset_iden) {
 		reset_str(&s);
 		init_str(&s);
 
-		cout << endl;
-		cout << "Your Cluster Identifier is: " << cluster_iden << endl;
 		cout << endl;
 		cout << "Checking on Status of Cluster Creation." << endl;
 		cout << endl;
@@ -515,7 +503,6 @@ void BigML::create_ensemble(const string dataset_iden) {
 
 	curl_global_init(CURL_GLOBAL_ALL);
 	curl = curl_easy_init();
-	cout << "Initializing cURL" << endl;
 
 	init_str(&s); //Initialize memory buffer for storing resource identifier & status code for later use
 
@@ -552,8 +539,6 @@ void BigML::create_ensemble(const string dataset_iden) {
 		reset_str(&s);
 		init_str(&s);
 
-		cout << endl;
-		cout << "Your Ensemble Identifier is: " << ensemble_iden << endl;
 		cout << endl;
 		cout << "Checking on Status of Ensemble Creation." << endl;
 		cout << endl;
@@ -599,7 +584,6 @@ void BigML::create_model(const string dataset_iden) {
 	
 	curl_global_init(CURL_GLOBAL_ALL);
 	curl = curl_easy_init();
-	cout << "Initializing cURL" << endl;
 	
 	init_str(&s); //Initialize memory buffer for storing resource identifier & status code for later use
 	
@@ -635,8 +619,6 @@ void BigML::create_model(const string dataset_iden) {
 		reset_str(&s);
 		init_str(&s);
 
-		cout << endl;
-		cout << "Your Model Identifier is: " << model_iden << endl;
 		cout << endl;
 		cout << "Checking on Status of Model Creation." << endl;
 		cout << endl;
