@@ -52,4 +52,18 @@ The only function that behaves differently is <i>[object.create_prediction("mode
 
 Any questions about these Bindings can be sent directly towards me. Anything else is better sent towards BigML (https://github.com/bigmlcom).
 
+# What Can You Do?
+
+As of 9/10/15, the current list of features are:
+
+-Create a Remote Source
+-Build a Dataset
+-Detect a Anomalies
+-Build a Cluster
+-Build an Ensemble
+-Build a Model
+-Develop a Prediction
+
+These Bindings do receive ongoing support, so more features and any bug tweaking will definitely be on the way!
+
 Last README Update: 09/10/2015
