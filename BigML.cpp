@@ -19,7 +19,7 @@ void BigML::get_source_identifier(str *s) {
 		&& s->ptr[i+6] == '/') {
 			i += 7;
 			for (j = 0; j<24; j++) {
-				src += s->ptr[i];    //Copy identifier into string
+				src += s->ptr[i]; //Copy identifier into string
 				i++;}
 			break;}}}
 	
@@ -31,7 +31,7 @@ void BigML::get_dataset_identifier(str *s) {
 		&& s->ptr[i+6] == 't' && s->ptr[i+7] == '/') {
 			i += 8;
 			for (j = 0; j<24; j++) {
-				dts += s->ptr[i];    //Copy identifier into string
+				dts += s->ptr[i]; //Copy identifier into string
 				i++;}
 			break;}}}
 	
@@ -43,7 +43,7 @@ void BigML::get_anomaly_identifier(str *s) {
 			&& s->ptr[i+6] == 'y' && s->ptr[i+7] == '/') {
 			i += 8;
 			for (j = 0; j<24; j++) {
-				ano += s->ptr[i];    //Copy identifier into string
+				ano += s->ptr[i]; //Copy identifier into string
 				i++;}
 			break;}}}
 	
@@ -55,7 +55,7 @@ void BigML::get_cluster_identifier(str *s) {
 			&& s->ptr[i+6] == 'r' && s->ptr[i+7] == '/') {
 			i += 8;
 			for (j = 0; j<24; j++) {
-				cls += s->ptr[i];    //Copy identifier into string
+				cls += s->ptr[i]; //Copy identifier into string
 				i++;}
 			break;}}}
 	
@@ -67,7 +67,7 @@ void BigML::get_ensemble_identifier(str *s) {
 		&& s->ptr[i+6] == 'l' && s->ptr[i+7] == 'e' && s->ptr[i+8] == '/') {
 			i += 9;
 			for (j = 0; j<24; j++) {
-				ens += s->ptr[i];    //Copy identifier into string
+				ens += s->ptr[i]; //Copy identifier into string
 				i++;}
 			break;}}}
 
@@ -78,16 +78,16 @@ void BigML::get_model_identifier(str *s) {
 		&& s->ptr[i+3] == 'e' && s->ptr[i+4] == 'l' && s->ptr[i+5] == '/') {
 			i += 6;
 			for (j = 0; j<24; j++) {
-				mod += s->ptr[i];    //Copy identifier into string
+				mod += s->ptr[i]; //Copy identifier into string
 				i++;}
 			break;}}}
 
 void BigML::get_status(str *s) {
 			
-			for (i = 0; i<s->len; i++) {
-				if (s->ptr[i] == '"' && s->ptr[i+1] == 's' && s->ptr[i+2] == 't'
-				 && s->ptr[i+3] == 'a' && s->ptr[i+4] == 't') {
-					code = s->ptr[i+19];}}}
+	for (i = 0; i<s->len; i++) {
+		if (s->ptr[i] == '"' && s->ptr[i+1] == 's' && s->ptr[i+2] == 't'
+		&& s->ptr[i+3] == 'a' && s->ptr[i+4] == 't') {
+			code = s->ptr[i+19];}}}
 	
 void BigML::get_dataset_status(str *s) {
 			
@@ -190,7 +190,7 @@ void BigML::create_remote_source(const char* url, const char* title) {
 		curl_easy_setopt(curl, CURLOPT_POSTFIELDS, json); //Posting JSON body
 		curl_easy_setopt(curl, CURLOPT_URL, request.data()); //To authenticated source site
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writefunc); //Get JSON response code using writefunc
-		curl_easy_setopt(curl, CURLOPT_WRITEDATA, &s);	//Send response code to struct str s
+		curl_easy_setopt(curl, CURLOPT_WRITEDATA, &s); //Send response code to struct str s
 		curl_easy_perform(curl); //Launch request
 				
 		curl_slist_free_all(slist); //Free headers
@@ -225,13 +225,13 @@ void BigML::create_remote_source(const char* url, const char* title) {
 			curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writefunc); //Get JSON response code using writefunc
 			curl_easy_setopt(curl, CURLOPT_WRITEDATA, &s);
 						
-			while (code != '5') {			//While request is not completed
-				curl_easy_perform(curl);	//Send GET request
-				get_status(&s);				//Check status code
-				sleep_for(seconds(wait));	//Send delay to prevent throttling server
-				reset_str(&s);				//Clear buffer
+			while (code != '5') {		  //While request is not completed
+				curl_easy_perform(curl);  //Send GET request
+				get_status(&s);		  //Check status code
+				sleep_for(seconds(wait)); //Send delay to prevent throttling server
+				reset_str(&s);		  //Clear buffer
 				init_str(&s);
-				wait++;}					//Increase delay time
+				wait++;}		  //Increase delay time
 	
 			cout << "Your Source with Identifier '" << source_iden << "' Has Been Created." << endl;}
 					
@@ -270,11 +270,11 @@ void BigML::create_dataset(const string source_iden) {
 		slist = curl_slist_append(slist, "Content-Type: application/json"); //I am submitting JSON
 		slist = curl_slist_append(slist, "charsets: utf-8");
 		curl_easy_setopt(curl, CURLOPT_HTTPHEADER, slist);
-		curl_easy_setopt(curl, CURLOPT_POSTFIELDS, json);
-		curl_easy_setopt(curl, CURLOPT_URL, request.data());
+		curl_easy_setopt(curl, CURLOPT_POSTFIELDS, json); //Posting JSON body
+		curl_easy_setopt(curl, CURLOPT_URL, request.data()); //To authenticated source site
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writefunc); //Get JSON response code using writefunc
 		curl_easy_setopt(curl, CURLOPT_WRITEDATA, &s);	//Send response code to struct str s
-		curl_easy_perform(curl);
+		curl_easy_perform(curl); //Launch request
 				
 		curl_slist_free_all(slist); //Free headers
 		curl_easy_cleanup(curl); //End cURL session
@@ -310,13 +310,13 @@ void BigML::create_dataset(const string source_iden) {
 			curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writefunc); //Get JSON response code using writefunc
 			curl_easy_setopt(curl, CURLOPT_WRITEDATA, &s);
 			
-			while (code != '5') {			//While request is not completed
-				curl_easy_perform(curl);	//Send GET request
-				get_dataset_status(&s);		//Check status code
-				sleep_for(seconds(wait));	//Send delay to prevent throttling server
-				reset_str(&s);				//Clear buffer
+			while (code != '5') {		  //While request is not completed
+				curl_easy_perform(curl);  //Send GET request
+				get_dataset_status(&s);	  //Check status code
+				sleep_for(seconds(wait)); //Send delay to prevent throttling server
+				reset_str(&s);		  //Clear buffer
 				init_str(&s);
-				wait++;}					//Increase delay time
+				wait++;}		  //Increase delay time
 		
 			cout << "Your Dataset with Identifier '" << dataset_iden << "' Has Been Created." << endl;}
 						
@@ -355,8 +355,8 @@ void BigML::create_anomalies(const string dataset_iden) {
 		slist = curl_slist_append(slist, "Content-Type: application/json"); //I am submitting JSON
 		slist = curl_slist_append(slist, "charsets: utf-8");
 		curl_easy_setopt(curl, CURLOPT_HTTPHEADER, slist);
-		curl_easy_setopt(curl, CURLOPT_POSTFIELDS, json);
-		curl_easy_setopt(curl, CURLOPT_URL, request.data());
+		curl_easy_setopt(curl, CURLOPT_POSTFIELDS, json); //Posting JSON body
+		curl_easy_setopt(curl, CURLOPT_URL, request.data()); //To authenticated source site
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writefunc); //Get JSON response code using writefunc
 		curl_easy_setopt(curl, CURLOPT_WRITEDATA, &s);	//Send response code to struct str s
 		curl_easy_perform(curl);
@@ -396,13 +396,13 @@ void BigML::create_anomalies(const string dataset_iden) {
 			curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writefunc); //Get JSON response code using writefunc
 			curl_easy_setopt(curl, CURLOPT_WRITEDATA, &s);
 							
-			while (code != '5') {			//While request is not completed
-				curl_easy_perform(curl);	//Send GET request
-				get_status(&s);				//Check status code
-				sleep_for(seconds(wait));	//Send delay to prevent throttling server
-				reset_str(&s);				//Clear buffer
+			while (code != '5') {		  //While request is not completed
+				curl_easy_perform(curl);  //Send GET request
+				get_status(&s);		  //Check status code
+				sleep_for(seconds(wait)); //Send delay to prevent throttling server
+				reset_str(&s);		  //Clear buffer
 				init_str(&s);
-				wait++;}					//Increase delay time
+				wait++;}		  //Increase delay time
 		
 			cout << "Your Anomaly Detection with Identifier '" << anomaly_iden << "' is Complete." << endl;}
 						
@@ -441,8 +441,8 @@ void BigML::create_cluster(const string dataset_iden) {
 		slist = curl_slist_append(slist, "Content-Type: application/json"); //I am submitting JSON
 		slist = curl_slist_append(slist, "charsets: utf-8");
 		curl_easy_setopt(curl, CURLOPT_HTTPHEADER, slist);
-		curl_easy_setopt(curl, CURLOPT_POSTFIELDS, json);
-		curl_easy_setopt(curl, CURLOPT_URL, request.data());
+		curl_easy_setopt(curl, CURLOPT_POSTFIELDS, json); //Posting JSON body
+		curl_easy_setopt(curl, CURLOPT_URL, request.data()); //To authenticated source site
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writefunc); //Get JSON response code using writefunc
 		curl_easy_setopt(curl, CURLOPT_WRITEDATA, &s);	//Send response code to struct str s
 		curl_easy_perform(curl);
@@ -481,13 +481,13 @@ void BigML::create_cluster(const string dataset_iden) {
 			curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writefunc); //Get JSON response code using writefunc
 			curl_easy_setopt(curl, CURLOPT_WRITEDATA, &s);
 			
-			while (code != '5') {			//While request is not completed
-				curl_easy_perform(curl);	//Send GET request
-				get_status(&s);				//Check status code
-				sleep_for(seconds(wait));	//Send delay to prevent throttling server
-				reset_str(&s);				//Clear buffer
+			while (code != '5') {		  //While request is not completed
+				curl_easy_perform(curl);  //Send GET request
+				get_status(&s);		  //Check status code
+				sleep_for(seconds(wait)); //Send delay to prevent throttling server
+				reset_str(&s);		  //Clear buffer
 				init_str(&s);
-				wait++;}}					//Increase delay time
+				wait++;}}		  //Increase delay time
 		
 		else {
 			cout << "cURL failed to connect. Please check your connections" << endl;
@@ -525,8 +525,8 @@ void BigML::create_ensemble(const string dataset_iden) {
 		slist = curl_slist_append(slist, "Content-Type: application/json"); //I am submitting JSON
 		slist = curl_slist_append(slist, "charsets: utf-8");
 		curl_easy_setopt(curl, CURLOPT_HTTPHEADER, slist);
-		curl_easy_setopt(curl, CURLOPT_POSTFIELDS, json);
-		curl_easy_setopt(curl, CURLOPT_URL, request.data());
+		curl_easy_setopt(curl, CURLOPT_POSTFIELDS, json); //Posting JSON body
+		curl_easy_setopt(curl, CURLOPT_URL, request.data()); //To authenticated source site
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writefunc); //Get JSON response code using writefunc
 		curl_easy_setopt(curl, CURLOPT_WRITEDATA, &s);	//Send response code to struct str s
 		curl_easy_perform(curl);
@@ -565,13 +565,13 @@ void BigML::create_ensemble(const string dataset_iden) {
 			curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writefunc); //Get JSON response code using writefunc
 			curl_easy_setopt(curl, CURLOPT_WRITEDATA, &s);
 			
-			while (code != '5') {			//While request is not completed
-				curl_easy_perform(curl);	//Send GET request
-				get_status(&s);				//Check status code
-				sleep_for(seconds(wait));	//Send delay to prevent throttling server
-				reset_str(&s);				//Clear buffer
+			while (code != '5') {		  //While request is not completed
+				curl_easy_perform(curl);  //Send GET request
+				get_status(&s);		  //Check status code
+				sleep_for(seconds(wait)); //Send delay to prevent throttling server
+				reset_str(&s);		  //Clear buffer
 				init_str(&s);
-				wait++;}}					//Increase delay time
+				wait++;}}		  //Increase delay time
 		
 		else {
 			cout << "cURL failed to connect. Please check your connections" << endl;
@@ -609,8 +609,8 @@ void BigML::create_model(const string dataset_iden) {
 		slist = curl_slist_append(slist, "Content-Type: application/json"); //I am submitting JSON
 		slist = curl_slist_append(slist, "charsets: utf-8");
 		curl_easy_setopt(curl, CURLOPT_HTTPHEADER, slist);
-		curl_easy_setopt(curl, CURLOPT_POSTFIELDS, json);
-		curl_easy_setopt(curl, CURLOPT_URL, request.data());
+		curl_easy_setopt(curl, CURLOPT_POSTFIELDS, json); //Posting JSON body
+		curl_easy_setopt(curl, CURLOPT_URL, request.data()); //To authenticated source site
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writefunc); //Get JSON response code using writefunc
 		curl_easy_setopt(curl, CURLOPT_WRITEDATA, &s);	//Send response code to struct str s
 		curl_easy_perform(curl);
@@ -648,13 +648,13 @@ void BigML::create_model(const string dataset_iden) {
 			curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writefunc); //Get JSON response code using writefunc
 			curl_easy_setopt(curl, CURLOPT_WRITEDATA, &s);
 			
-			while (code != '5') {			//While request is not completed
-				curl_easy_perform(curl);	//Send GET request
-				get_status(&s);				//Check status code
-				sleep_for(seconds(wait));	//Send delay to prevent throttling server
-				reset_str(&s);				//Clear buffer
+			while (code != '5') {		  //While request is not completed
+				curl_easy_perform(curl);  //Send GET request
+				get_status(&s);		  //Check status code
+				sleep_for(seconds(wait)); //Send delay to prevent throttling server
+				reset_str(&s);		  //Clear buffer
 				init_str(&s);
-				wait++;}}					//Increase delay time
+				wait++;}}		  //Increase delay time
 		
 		else {
 			cout << "cURL failed to connect. Please check your connections" << endl;
@@ -672,7 +672,7 @@ void BigML::create_prediction(const string model_iden, const char *col, const fl
 	cout << endl;
 
 	cJSON *item1, *item2; //For submitting JSON body
-	char *info;			  //For submitting JSON body
+	char *info;	      //For submitting JSON body
 	
 	resource = "model/" + model_iden;
 	request = "https://bigml.io/prediction?" + BIGML_AUTH;
@@ -706,8 +706,8 @@ void BigML::create_prediction(const string model_iden, const char *col, const fl
 		slist = curl_slist_append(slist, "Content-Type: application/json"); //I am submitting JSON
 		slist = curl_slist_append(slist, "charsets: utf-8");
 		curl_easy_setopt(curl, CURLOPT_HTTPHEADER, slist);
-		curl_easy_setopt(curl, CURLOPT_POSTFIELDS, json);
-		curl_easy_setopt(curl, CURLOPT_URL, request.data());
+		curl_easy_setopt(curl, CURLOPT_POSTFIELDS, json); //Posting JSON body
+		curl_easy_setopt(curl, CURLOPT_URL, request.data()); //To authenticated source site
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writefunc); //Get JSON response code using writefunc
 		curl_easy_setopt(curl, CURLOPT_WRITEDATA, &s);	//Send response code to struct str s
 		curl_easy_perform(curl);
