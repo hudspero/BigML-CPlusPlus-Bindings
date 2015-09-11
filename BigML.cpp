@@ -39,8 +39,8 @@ void BigML::get_anomaly_identifier(str *s) {
 		
 	for (i = 0; i<s->len; i++) { //For length of JSON string
 		if (s->ptr[i] == 'a' && s->ptr[i+1] == 'n' && s->ptr[i+2] == 'o'
-			&& s->ptr[i+3] == 'm' && s->ptr[i+4] == 'a' && s->ptr[i+5] == 'l'
-			&& s->ptr[i+6] == 'y' && s->ptr[i+7] == '/') {
+		&& s->ptr[i+3] == 'm' && s->ptr[i+4] == 'a' && s->ptr[i+5] == 'l'
+		&& s->ptr[i+6] == 'y' && s->ptr[i+7] == '/') {
 			i += 8;
 			for (j = 0; j<24; j++) {
 				ano += s->ptr[i]; //Copy identifier into string
@@ -51,8 +51,8 @@ void BigML::get_cluster_identifier(str *s) {
 		
 	for (i = 0; i<s->len; i++) { //For length of JSON string
 		if (s->ptr[i] == 'c' && s->ptr[i+1] == 'l' && s->ptr[i+2] == 'u'
-			&& s->ptr[i+3] == 's' && s->ptr[i+4] == 't' && s->ptr[i+5] == 'e'
-			&& s->ptr[i+6] == 'r' && s->ptr[i+7] == '/') {
+		&& s->ptr[i+3] == 's' && s->ptr[i+4] == 't' && s->ptr[i+5] == 'e'
+		&& s->ptr[i+6] == 'r' && s->ptr[i+7] == '/') {
 			i += 8;
 			for (j = 0; j<24; j++) {
 				cls += s->ptr[i]; //Copy identifier into string
