@@ -32,32 +32,32 @@ class BigML {
 
     private:
 	
-		string user_name, user_key, BIGML_AUTH; //For user authentication
+	string user_name, user_key, BIGML_AUTH; //For user authentication
         string request, resource, iden, response; //For building request URLs
-		int wait; //For delaying fetch requests
-		int code; //For storing status code
-		int i, j; //For index variables
+	int wait; //For delaying fetch requests
+	int code; //For storing status code
+	int i, j; //For index variables
 	
-		CURL *curl; //libcURL easy_handle for easy operations
+	CURL *curl; //libcURL easy_handle for easy operations
 
-		cJSON *root, *data, *item; //For submitting JSON body
-		char *json;				   //For submitting JSON body
+	cJSON *root, *data, *item; //For submitting JSON body
+	char *json;		   //For submitting JSON body
 	
-		struct str s;						 //For storing JSON response body
-		string src, dts, ano, cls, ens, mod; //For storing/fetching resource identifiers
+	struct str s;			     //For storing JSON response body
+	string src, dts, ano, cls, ens, mod; //For storing/fetching resource identifiers
 	
-		void validate(string &BIGML_AUTH);
+	void validate(string &BIGML_AUTH);
 	
-		void get_source_identifier(str *s);
-		void get_dataset_identifier(str *s);
-		void get_anomaly_identifier(str *s);
-		void get_cluster_identifier(str *s);
-		void get_ensemble_identifier(str *s);
-		void get_model_identifier(str *s);
+	void get_source_identifier(str *s);
+	void get_dataset_identifier(str *s);
+	void get_anomaly_identifier(str *s);
+	void get_cluster_identifier(str *s);
+	void get_ensemble_identifier(str *s);
+	void get_model_identifier(str *s);
 	
-		void get_status(str *s);
-		void get_dataset_status(str *s);
-		void get_prediction_info(str *s);
+	void get_status(str *s);
+	void get_dataset_status(str *s);
+	void get_prediction_info(str *s);
 	
 /**********************************************************************************************/
 	
