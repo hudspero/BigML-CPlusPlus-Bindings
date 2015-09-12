@@ -26,20 +26,22 @@ void BigML::validate(string &BIGML_AUTH) {
 		curl_easy_setopt(curl, CURLOPT_WRITEDATA, &s);
 		curl_easy_perform(curl);
 		
-		for (i = 0; i<s.len; i++) { //Parse through JSON response
+		for (i = 0; i<s.len; i++) {
 			if (s.ptr[i] == 'c' && s.ptr[i+1] == 'o' && s.ptr[i+2] == 'd'
 			&& s.ptr[i+7] == '4') {
 				cout << "ERROR: ";
 				i += 7;
 				for (j = 0; j<3; j++)
 					cout << s.ptr[i+j];
-				cout << endl;}}}
+				cout << endl;
+				exit(1);}}}
 	
 	else {
 		cout << "cURL failed to connect. Please check your connections." << endl;
 		exit(1);}
 	
-	reset_str(&s);}
+	reset_str(&s);
+	curl_easy_cleanup(curl);} //End cURL session
 
 void BigML::get_source_identifier(str *s) {
 	
