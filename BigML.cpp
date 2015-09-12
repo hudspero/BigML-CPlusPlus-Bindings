@@ -28,7 +28,7 @@ void BigML::validate(string &BIGML_AUTH) {
 		
 		for (i = 0; i<s.len; i++) {
 			if (s.ptr[i] == 'c' && s.ptr[i+1] == 'o' && s.ptr[i+2] == 'd'
-			&& s.ptr[i+7] == '4') {
+			&& (s.ptr[i+7] == '4' || s.ptr[i+7] == '5')) {
 				cout << "ERROR: ";
 				i += 7;
 				for (j = 0; j<3; j++)
