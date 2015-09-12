@@ -41,9 +41,9 @@ class BigML {
 	CURL *curl; //libcURL easy_handle for easy operations
 
 	cJSON *root, *data, *item; //For submitting JSON body
-	char *json;		   //For submitting JSON body
+	char *json;				   //For submitting JSON body
 	
-	struct str s;			     //For storing JSON response body
+	struct str s;						 //For storing JSON response body
 	string src, dts, ano, cls, ens, mod; //For storing/fetching resource identifiers
 	
 	void validate(string &BIGML_AUTH);
@@ -63,12 +63,6 @@ class BigML {
 	
     public:
 	
-	//Set user authentication info through function arguments
-	void set_user_info(const string str1, const string str2);
-	
-	//Set user authentication info through environment variables
-	void set_user_info();
-	
 	//Return identifiers as "get" member functions to prevent altering of private member variables
 	string get_src();
 	string get_dts();
@@ -77,18 +71,24 @@ class BigML {
 	string get_ens();
 	string get_mod();
 	
+	//Set user authentication info through function arguments
+	void set_user_info(const string _name, const string _key);
+	
+	//Set user authentication info through environment variables
+	void set_user_info();
+	
         void create_remote_source(const char* url, const char* title);
 	
 		void get_source(const string source_iden);
-
+	
 	void create_dataset(const string source_iden);
-
+	
 		void get_dataset(const string dataset_iden);
-
+	
 	void create_anomalies(const string dataset_iden);
 	
 		void get_anomalies(const string anomaly_iden);
-
+	
 	void create_cluster(const string dataset_iden);
 			
 		void get_cluster(const string cluster_iden);
