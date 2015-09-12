@@ -34,15 +34,17 @@ To set user authentication, you have two choices.
 
   -The first gets the username and API key from environment variables 
   
-      [object.set_user_info();] 
+      object.set_user_info(); 
   
   -The second choice gets the username and API key from string literals 
   
-      [object.set_user_info("username", "api_key");]
+      object.set_user_info("username", "api_key");
+
+If your username or API key are invalid, you will receive a 401 Error. If you don't have enough credits, you will receive a 402 Error. More info on bad status codes can be found <a href="https://bigml.com/developers/status_codes">here</a>.
 
 When a function is declared, a JSON body will be constructed, containing your user authentication and the information passed into the function arguments. For example, to create a remote source, you would call the function 
 
-    [object.create_remote_source("s3://bigml-public/csv/iris.csv", "source");] 
+    object.create_remote_source("s3://bigml-public/csv/iris.csv", "source");
     
 where the URL is a link to a remote source, and "source" is the name.
 
@@ -54,23 +56,23 @@ In return, you will get a unique resource identifier, which you can use to view 
 
 To check on the status of the source for its completion, calling the function 
 
-    [object.get_source(object.get_src());] 
+    object.get_source(object.get_src());
     
 will send an HTTP GET request based on the resource identifier stored in 
 
-    [object.get_src();]
+    object.get_src();
     
 Alternatively, you could call the function as 
 
-    [object.get_source("identifier");]
+    object.get_source("identifier");
     
 The majority of functions follow a similar pattern, building off an existing resource's identifier. To create a dataset, for example, after creating a source, all you have to call is 
 
-    [object.create_dataset(object.get_src());]
+    object.create_dataset(object.get_src());
 
 The only function that behaves differently is 
 
-    [object.create_prediction("model_identifier", "column", number);] 
+    object.create_prediction("model_identifier", "column", number);
     
 where the prediction is created instantaneously and a confidence for that particular prediction is returned.
 
